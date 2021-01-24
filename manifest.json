@@ -1,0 +1,62 @@
+{
+   "name": "Opt-A(vailable)",
+   "version": "1.5",
+   "description": "Grants calendar superpowers",
+   "manifest_version": 2,
+   "content_scripts": [    
+      {
+         "matches": [
+            "*://*/*"
+         ],
+         "js": [
+            "jquery.js","content2.js", "bootstrap.min.js"
+         ],
+         "run_at": "document_end"
+      }
+   ],
+   "oauth2": {
+      "client_id": "879287747516-kbl6s0dfq1vtv520hnlas351d0be0dut.apps.googleusercontent.com",
+      "scopes": ["https://www.googleapis.com/auth/calendar.readonly"]
+   },
+   
+   "background": {
+      "scripts": [
+         "jquery.js",
+         "background.js",
+         "bootstrap.min.js"
+      ],
+      "persistent": true
+   },
+
+   "commands": {
+      "get-calendar": {
+         "suggested_key": {
+            "default": "Ctrl+A",
+            "mac": "Alt+A"
+         },
+         "description": "Get Calendar",
+         "global": false
+      }
+   },
+      "permissions": [
+         "activeTab",
+         "identity"
+   ],
+   "browser_action": {
+      "default_popup" : "popop.html",
+      "default_title": "A pop up!",
+      "default_icon": {
+         "16": "images/logo16.png",
+         "32": "images/logo32.png",
+         "48": "images/logo48.png",
+         "128": "images/logo128.png"
+      }
+   },
+   "content_security_policy": "script-src 'self' http://code.jquery.com; object-src 'self'",
+   "web_accessible_resources": [
+      "jquery.js",
+      "popup.html",
+      "bootstrap.min.js"
+   ],
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqB9ljr0kcLbo6c/8ExbHvIIv2lOLM6ECh3ZR8v0wSeQ/5YlM3G+dpfJ8lm4I/aNwqclYqszln9JkQ4EYNNL5Mt72PhKXnzYK/pXHuSS+Wr6Y1Ad1XNClWkfLfK6/Nfyj0XJYP6YGMwD1xh44nrYY2Tk7dJI4t/2I210en1NKkZhh17RLzKTLRGgDFv5ZjWq11l1J+U3oMmfNelVH5gG3zmjJYIuJf2Sb/bQznF9pcgkMOIWSw/yHHGHdSqbgrcXmqZxKcFTdZ50af42sqQEJuOYQ2k7R6ZKWW1c8RDVbwEIxznC66BgmAwfpemQXIl8daMHhbwp0jPok30hxrCMt+wIDAQAB"
+}
